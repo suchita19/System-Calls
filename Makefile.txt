@@ -1,0 +1,14 @@
+CC = g++ -O2 -Wno-deprecated 
+
+tag = -i
+
+ifdef linux
+tag = -n
+endif
+
+libmath.a: mean.o
+	ar cr libmath.a mean.o
+mean.o: mean.c mean.h
+	cc -c mean.c
+clean: 
+	rm -f *.o
